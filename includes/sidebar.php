@@ -1,0 +1,1 @@
+<aside class="sidebar" id="sidebar"><div class="sidebar-brand"><span class="brand-mark small">✦</span><strong>PengliCraft</strong></div><nav><a href="dashboard.php">Dashboard</a><a href="products.php">Data Produk</a><a href="product_form.php">Tambah Produk</a></nav><a class="logout-link" href="logout.php">Keluar</a></aside>

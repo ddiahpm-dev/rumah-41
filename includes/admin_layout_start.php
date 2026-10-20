@@ -1,0 +1,2 @@
+<?php require_once __DIR__ . '/header.php'; ?>
+<div class="app-shell"><?php require __DIR__ . '/sidebar.php'; ?><div class="main-content"><header class="topbar"><button class="menu-toggle" type="button" aria-label="Buka menu" data-menu-toggle>☰</button><div><p class="eyebrow">PENGLIPURAN RUMAH41</p><h1><?= e($pageHeading ?? $pageTitle) ?></h1></div><div class="user-chip"><?= e($_SESSION['user']['name'] ?? '') ?></div></header>

@@ -1,0 +1,7 @@
+<?php
+declare(strict_types=1);
+require_once __DIR__ . '/auth/check_auth.php'; require_login(); require_once __DIR__ . '/controllers/ProductController.php';
+$pageTitle = 'Data Produk'; $pageHeading = 'Data Produk'; $products = ProductController::index(); $success = flash('success'); require __DIR__ . '/includes/admin_layout_start.php';
+?>
+<?php if ($success): ?><div class="alert success"><?= e($success) ?></div><?php endif; ?><div class="section-heading"><div><p class="muted"><?= count($products) ?> produk terdaftar</p></div><a class="button primary" href="product_form.php">+ Tambah produk</a></div><div class="table-wrap"><table><thead><tr><th>Gambar</th><th>Produk</th><th>Deskripsi</th><th>Harga</th><th>Stok</th><th>Aksi</th></tr></thead><tbody><?php foreach ($products as $product): ?><tr><td><?php if (!empty($product['image'])): ?><img class="product-thumb" src="<?= e($product['image']) ?>" alt="<?= e($product['name']) ?>"><?php else: ?><span class="muted">-</span><?php endif; ?></td><td><strong><?= e($product['name']) ?></strong></td><td><?= e($product['description']) ?></td><td>Rp <?= number_format((float)$product['price'], 0, ',', '.') ?></td><td><?= (int)$product['stock'] ?></td><td><a class="button small" href="product_form.php?id=<?= (int)$product['id'] ?>">Edit</a></td></tr><?php endforeach; ?><?php if (!$products): ?><tr><td colspan="6" class="empty">Belum ada produk. Tambahkan produk pertama Anda.</td></tr><?php endif; ?></tbody></table></div>
+<?php require __DIR__ . '/includes/admin_layout_end.php'; ?>
